@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>زانکۆی سۆران -بەشی یاسا- Soran University</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary-blue: #0066FF;
+    --primary-light: #3388FF;
+    --primary-dark: #0052CC;
+    --secondary: #64748B;
+    --accent: #06B6D4;
+    --success: #10B981;
+    --warning: #F59E0B;
+    --error: #EF4444;
+    --info: #3B82F6;
+    
+    --bg-main: linear-gradient(135deg, #0F172A 0%, #1E293B 25%, #334155 50%, #475569 75%, #64748B 100%);
+    --bg-card: rgba(255, 255, 255, 0.95);
+    --bg-glass: rgba(255, 255, 255, 0.1);
+    
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-muted: #64748B;
+    --text-white: #FFFFFF;
+    
+    --border: rgba(255, 255, 255, 0.2);
+    --border-light: rgba(255, 255, 255, 0.1);
+    
+    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    
+    --radius: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 20px;
+    --radius-3xl: 24px;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-main);
+    color: var(--text-white);
+    direction: rtl;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+  }
+  
+  /* Background Animation */
+  .bg-decoration {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .floating-shape {
+    position: absolute;
+    background: var(--bg-glass);
+    border-radius: 50%;
+    animation: float 20s infinite linear;
+  }
+  
+  .floating-shape:nth-child(1) {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    right: 10%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.1), transparent);
+  }
+  
+  .floating-shape:nth-child(2) {
+    width: 200px;
+    height: 200px;
+    top: 60%;
+    left: 15%;
+    animation-delay: -7s;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.1), transparent);
+  }
+  
+  .floating-shape:nth-child(3) {
+    width: 150px;
+    height: 150px;
+    top: 20%;
+    left: 30%;
+    animation-delay: -14s;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.1), transparent);
+  }
+  
+  @keyframes float {
+    0%, 100% { 
+      transform: translateY(0px) rotate(0deg); 
+      opacity: 0.3; 
+    }
+    50% { 
+      transform: translateY(-30px) rotate(180deg); 
+      opacity: 0.6; 
+    }
+  }
+  
+  /* Main Container */
+  .container {
+    position: relative;
+    z-index: 10;
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-3xl);
+    padding: 60px 48px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: var(--shadow-2xl);
+    color: var(--text-primary);
+    text-align: center;
+  }
+  
+  /* Logo */
+  .logo {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-light));
+    border-radius: 50%;
+    margin: 0 auto 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    color: white;
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    overflow: hidden;
+    animation: pulse 3s ease-in-out infinite;
+  }
+  
+  .logo::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: rotate(45deg);
+    animation: shine 4s ease-in-out infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+  
+  @keyframes shine {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  }
+  
+  /* Typography */
+  .university-name {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+  
+  .university-subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+  
+  .description {
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    line-height: 1.6;
+  }
+  
+  /* Login Link */
+  .login-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-light));
+    color: white;
+    text-decoration: none;
+    padding: 20px 32px;
+    border-radius: var(--radius-xl);
+    font-weight: 700;
+    font-size: 18px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+  
+  .login-link::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+  
+  .login-link:hover::before {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .login-link:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-xl);
+  }
+  
+  .login-link i {
+    font-size: 20px;
+  }
+  
+  /* Features Grid */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+  }
+  
+  .feature {
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    padding: 24px 16px;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+  }
+  
+  .feature:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .feature-icon {
+    font-size: 32px;
+    color: var(--primary-blue);
+    margin-bottom: 12px;
+  }
+  
+  .feature-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  
+  .feature-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+  
+  /* Footer */
+  .footer {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-light);
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+  
+  .footer a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer a:hover {
+    color: var(--primary-light);
+  }
+  
+  /* Responsive */
+  @media (max-width: 640px) {
+    .container {
+      padding: 40px 24px;
+      margin: 10px;
+    }
+    
+    .logo {
+      width: 100px;
+      height: 100px;
+      font-size: 40px;
+    }
+    
+    .university-name {
+      font-size: 32px;
+    }
+    
+    .university-subtitle {
+      font-size: 18px;
+    }
+    
+    .description {
+      font-size: 16px;
+    }
+    
+    .login-link {
+      padding: 18px 28px;
+      font-size: 16px;
+    }
+    
+    .features {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+  
+  /* Animation */
+  .fade-in {
+    animation: fadeIn 1s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+</head>
+<body>
+  <!-- Background Animation -->
+  <div class="bg-decoration">
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="container fade-in">
+    <!-- Logo -->
+    <div class="logo">
+      <i class="fas fa-graduation-cap"></i>
+    </div>
+    
+    <!-- Header -->
+    <h1 class="university-name">زانکۆی سۆران</h1>
+    <p class="university-subtitle">Soran University</p>
+    <p class="description">سیستەمی بەڕێوەبردنی زانکۆ بۆ قوتابیان، مامۆستایان و کارمەندان</p>
+    
+    <!-- Login Link -->
+    <a href="https://script.google.com/macros/s/AKfycbyIVnVk74myqkRIggRxjzg-P0kAlzNdcMY16wX67QXHCAOvGEmisVreadt12-onQMNG5g/exec" 
+       class="login-link" 
+       target="_blank">
+      <i class="fas fa-sign-in-alt"></i>
+      چوونە ژوورەوە لە ڕێگەی ئیمەیلی زانکۆیی
+    </a>
+    
+    <!-- Features -->
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">
+          <i class="fas fa-user-graduate"></i>
+        </div>
+        <div class="feature-title">قوتابیان</div>
+        <div class="feature-desc">  </div>
+      </div>
+      
+      <div class="feature">
+        <div class="feature-icon">
+          <i class="fas fa-chalkboard-teacher"></i>
+        </div>
+        <div class="feature-title">مامۆستایان</div>
+        <div class="feature-desc">     </div>
+      </div>
+      
+      <div class="feature">
+        <div class="feature-icon">
+          <i class="fas fa-building"></i>
+        </div>
+        <div class="feature-title">بەڕێوەبەران</div>
+        <div class="feature-desc">  </div>
+      </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+      <p>© ٢٠٢٥ زانکۆی سۆران - هەموو مافەکان پارێزراون</p>
+      <p>
+        <a href="#help">یارمەتی</a> • 
+        <a href="#contact">پەیوەندی</a> • 
+        <a href="#support"> </a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
